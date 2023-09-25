@@ -31,9 +31,9 @@
 
         // Create variables for the block Size, Total # of Rows, and Total # of Columns
         
-        var blockSize = ; //size of each square
-        var total_row = ; //total row number
-        var total_col = ; //total column number
+        var blockSize = 25; //size of each square
+        var total_row = 17; //total row number
+        var total_col = 17; //total column number
         
         
         var board;
@@ -62,15 +62,15 @@
             board = document.getElementById("board");
 
             // These variables should be defined as products of the board size and the size of each block.
-            board.height = ;
-            board.width = ;
+            board.height = total_row*blockSize;
+            board.width = total_col*blockSize;
             context = board.getContext("2d");
         
             // Call a funciton to place the first food item.
             // Add an event listener that listens for the player pressing an arrow key. Then call a function that will change the snake's direction.
            
             placeFood();
-            document.addEventListener( , );  //for movements
+            document.addEventListener( "keyup", changeDirection);  //for movements
 
             // Set snake speed
             setInterval(update, 100);
@@ -93,18 +93,19 @@
             context.fillStyle = "";
 
             // The missing parameters should be the size of the board. 
-            context.fillRect(0, 0, , );
+            context.fillRect(0, 0, board.width, borard.height);
         
             // Set food color and position
             context.fillStyle = "";
 
             // The missing parameters should be the size of the food block. 
-            context.fillRect(foodX, foodY, , );
+            context.fillRect(foodX, foodY, blockSize, blockSize);
         
 
             // The missing condition should check if the snake's y position matches the apple's.
-            if (snakeX == foodX &&  == ) {
+            if (snakeX == foodX && snakeY == foodY) {
                 // This code should add a block to the end of the snake's body and create a new food item from our "placeFood" function
+                
             }
         
             // This for loop updates the array for the body of the snake to include the new block.
